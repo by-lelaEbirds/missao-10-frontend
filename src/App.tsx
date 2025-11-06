@@ -1,5 +1,5 @@
 // =============================================================================
-// ARQUIVO: src/App.tsx (VERSÃO FINAL COM ROTA PRIVADA - BÔNUS)
+// ARQUIVO: src/App.tsx (VERSÃO FINAL COM ROTA PRIVADA - CORRIGIDO)
 // =============================================================================
 import { useState, useEffect, FormEvent, ReactNode } from 'react';
 import { Routes, Route, Navigate, useNavigate, useLocation } from 'react-router-dom';
@@ -11,6 +11,17 @@ import './App.css';
 // =============================================================================
 const API_URL = "https://missao-10-backend-lela.onrender.com/products";
 // =============================================================================
+
+// (!!!) A CORREÇÃO ESTÁ AQUI (!!!)
+// A definição do "molde" do produto que estava faltando.
+interface IProduto {
+  id: string;
+  name: string;
+  price: number;
+  stock?: number;
+}
+// (!!!) FIM DA CORREÇÃO (!!!)
+
 
 // A "frase-senha" secreta que você pediu
 const PASSPHRASE_SECRETA = "confia-no-guri";

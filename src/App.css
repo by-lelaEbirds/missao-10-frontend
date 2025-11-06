@@ -1,6 +1,6 @@
 /* =============================================================================
-// ARQUIVO: src/App.css (Estilos para o nosso app)
-// =============================================================================
+// ARQUIVO: src/App.css (O VISUAL "VIDRO FOSCO")
+// ============================================================================= */
 
 .App {
   width: 100%;
@@ -11,72 +11,120 @@
 
 h1 {
   text-align: center;
+  font-weight: 700;
+  letter-spacing: -0.02em; /* Um truque de design sutil */
+}
+
+h2 {
+  font-weight: 600;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 0.5rem;
+  margin-top: 0;
 }
 
 hr {
-  border: none;
-  border-top: 1px solid #444;
-  margin: 2rem 0;
+  display: none; /* Vamos remover as linhas <hr /> feias */
 }
 
+/* * O "VIDRO FOSCO" (GLASSMORPHISM) 
+ * Esta é a mágica principal, inspirada no Ready.so
+*/
 .card {
-  background-color: #2f2f2f;
-  border-radius: 8px;
+  /* 1. O fundo semi-transparente */
+  background-color: rgba(28, 28, 30, 0.7);
+  
+  /* 2. O desfoque do que está atrás (O EFEITO FOSCO) */
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px); /* Para o Safari */
+
+  /* 3. A borda sutil que "pega a luz" */
+  border: 1px solid rgba(255, 255, 255, 0.1);
+
+  /* 4. As bordas super arredondadas (estilo Apple) */
+  border-radius: 16px; 
+  
   padding: 1.5rem;
-  margin-bottom: 1rem;
+  margin-top: 2rem; /* Espaçamento entre os cards */
+
+  /* 5. A sombra suave para dar profundidade */
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
 }
 
 .form-group {
-  margin-bottom: 1rem;
+  margin-bottom: 1.25rem;
 }
 
 .form-group label {
   display: block;
   margin-bottom: 0.5rem;
-  font-weight: bold;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.7); /* Cor secundária */
 }
 
+/* Inputs modernos */
 .form-group input {
   width: 100%;
-  padding: 0.75rem;
-  box-sizing: border-box; /* Garante que o padding não quebre o layout */
-  border-radius: 4px;
-  border: 1px solid #555;
-  background-color: #3f3f3f;
+  padding: 0.75rem 1rem;
+  box-sizing: border-box; 
+  border-radius: 8px; /* Cantos arredondados */
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background-color: rgba(0, 0, 0, 0.2);
   color: white;
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
 }
 
+.form-group input:focus {
+  outline: none;
+  border-color: #007aff; /* Azul Apple ao focar */
+  box-shadow: 0 0 0 3px rgba(0, 122, 255, 0.3);
+}
+
+/* Botão moderno */
 button {
-  padding: 0.75rem 1.5rem;
+  width: 100%;
+  padding: 0.85rem 1.5rem;
   border: none;
-  border-radius: 4px;
-  background-color: #007bff;
+  border-radius: 8px;
+  background-color: #007aff; /* Azul Apple */
   color: white;
-  font-weight: bold;
+  font-weight: 600;
+  font-size: 1rem;
   cursor: pointer;
   transition: background-color 0.2s;
 }
 
 button:disabled {
-  background-color: #555;
+  background-color: #333;
+  color: #777;
   cursor: not-allowed;
 }
 
 button:hover:not(:disabled) {
-  background-color: #0056b3;
+  background-color: #005ec4;
 }
 
+/* Tabela limpa e moderna */
 table {
   width: 100%;
-  border-collapse: collapse;
+  border-collapse: separate; /* Chave para cantos arredondados */
+  border-spacing: 0;
+  margin-top: 1rem;
 }
 
 th, td {
-  padding: 0.75rem;
-  border-bottom: 1px solid #444;
+  padding: 1rem;
   text-align: left;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 th {
-  background-color: #3a3a3a;
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 600;
+}
+
+/* Remove a borda da última linha */
+tr:last-child td {
+  border-bottom: none;
 }

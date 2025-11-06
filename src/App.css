@@ -1,7 +1,8 @@
 /* =============================================================================
-// ARQUIVO: src/App.css (O VISUAL "SQUARESPACE / DRIBBBLE")
+// ARQUIVO: src/App.css (VERSÃO FINAL COM LOGIN)
 // ============================================================================= */
 
+/* --- Estilos Gerais (do passo anterior) --- */
 .App {
   width: 100%;
   max-width: 700px;
@@ -11,9 +12,9 @@
 
 h1 {
   text-align: center;
-  font-size: 2.5rem; /* Título maior e mais impactante */
+  font-size: 2.5rem;
   font-weight: 700;
-  letter-spacing: -0.025em; /* Aperta um pouco as letras */
+  letter-spacing: -0.025em;
   color: #000;
   margin-bottom: 2rem;
 }
@@ -26,38 +27,24 @@ h2 {
 }
 
 hr {
-  display: none; /* Remove a linha <hr /> feia */
+  display: none;
 }
 
-/* * O CARD BRANCO FLUTUANTE (Estilo Dribbble)
- * Aqui está a inspiração do Squarespace: branco no creme.
-*/
 .card {
   background-color: #ffffff;
-  
-  /* 1. Cantos arredondados (Estilo Apple/Moderno) */
-  border-radius: 16px; 
-  
-  /* 2. Borda sutil para definir o card */
+  border-radius: 16px;
   border: 1px solid #EAEAEA;
-
-  padding: 2rem; /* Mais espaçamento interno */
-  margin-top: 2rem; 
-  
-  /* 3. A SOMBRA MÁGICA (Estilo Dribbble/Premium) */
-  /* Camadas de sombra para um efeito suave e profundo */
+  padding: 2rem;
+  margin-top: 2rem;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04), 0 10px 40px rgba(0, 0, 0, 0.06);
-  
   transition: all 0.3s ease;
 }
 
 .card:hover {
-  /* Efeito sutil ao passar o mouse */
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.05), 0 12px 45px rgba(0, 0, 0, 0.08);
   transform: translateY(-4px);
 }
 
-/* Estilo do Formulário */
 .form-group {
   margin-bottom: 1.25rem;
 }
@@ -66,16 +53,16 @@ hr {
   display: block;
   margin-bottom: 0.5rem;
   font-weight: 500;
-  color: #555555; /* Cinza para texto secundário */
+  color: #555555;
 }
 
 .form-group input {
   width: 100%;
   padding: 0.85rem 1rem;
   box-sizing: border-box; 
-  border-radius: 8px; /* Cantos arredondados */
+  border-radius: 8px;
   border: 1px solid #DCDCDC;
-  background-color: #FAFAFA; /* Fundo do input levemente cinza */
+  background-color: #FAFAFA;
   color: #1a1a1a;
   font-family: 'Inter', sans-serif;
   font-size: 0.95rem;
@@ -84,18 +71,17 @@ hr {
 
 .form-group input:focus {
   outline: none;
-  border-color: #0057FF; /* Cor de destaque */
+  border-color: #0057FF;
   background-color: #fff;
   box-shadow: 0 0 0 3px rgba(0, 87, 255, 0.1);
 }
 
-/* Botão "Premium" */
 button {
   width: 100%;
   padding: 0.85rem 1.5rem;
   border: none;
   border-radius: 8px;
-  background-color: #0057FF; /* Cor de destaque (Azul Vibrante) */
+  background-color: #0057FF;
   color: white;
   font-weight: 600;
   font-size: 1rem;
@@ -114,7 +100,6 @@ button:hover:not(:disabled) {
   box-shadow: 0 4px 15px rgba(0, 87, 255, 0.2);
 }
 
-/* Tabela "Clean" */
 table {
   width: 100%;
   border-collapse: separate;
@@ -125,7 +110,6 @@ table {
 th, td {
   padding: 1rem 1rem;
   text-align: left;
-  /* Borda sutil apenas na parte inferior */
   border-bottom: 1px solid #EAEAEA;
 }
 
@@ -142,7 +126,63 @@ td {
   font-weight: 500;
 }
 
-/* Remove a borda da última linha para um look limpo */
 tr:last-child td {
   border-bottom: none;
+}
+
+/* ==================================================================
+//  (!!) NOVOS ESTILOS PARA A PÁGINA DE LOGIN (!!)
+// ================================================================== */
+
+.login-container {
+  /* Centraliza o card de login no meio da tela */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-top: 2rem;
+}
+
+.login-card {
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+}
+
+.login-card h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.login-card input {
+  text-align: center;
+  font-size: 1.1rem;
+}
+
+.passphrase-hint {
+  font-size: 0.85rem;
+  color: #777;
+  margin-top: 1.5rem;
+}
+
+.error-message {
+  color: #D93025; /* Vermelho "erro" */
+  font-weight: 500;
+  margin-top: 1rem;
+  text-align: center;
+}
+
+/* * A MÁGICA DO "SHAKE" (EFEITO UAU!) * */
+.shake {
+  animation: shake 0.5s cubic-bezier(.36,.07,.19,.97) both;
+  transform: translate3d(0, 0, 0);
+  border-color: #D93025 !important; /* Borda vermelha ao errar */
+  box-shadow: 0 0 0 3px rgba(217, 48, 37, 0.1) !important;
+}
+
+@keyframes shake {
+  10%, 90% { transform: translate3d(-1px, 0, 0); }
+  20%, 80% { transform: translate3d(2px, 0, 0); }
+  30%, 50%, 70% { transform: translate3d(-4px, 0, 0); }
+  40%, 60% { transform: translate3d(4px, 0, 0); }
 }
